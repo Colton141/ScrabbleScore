@@ -24,7 +24,14 @@ namespace Scrabble.Tests
     public void WorthOne_LetterAEqualsOne_True()
     {
       ScrabbleScore newWord = new ScrabbleScore();
-      Assert.AreEqual(1,  newWord.LookUpValue("a"));
+      Assert.AreEqual(1,  newWord.LookUpValue('a'));
+    }
+
+    [TestMethod]
+    public void WorthFive_WordEqualsFive_True()
+    {
+      ScrabbleScore newWord = new ScrabbleScore();
+      Assert.AreEqual(5,  newWord.LoopThroughWord("dad"));
     }
 
   }
