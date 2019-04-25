@@ -23,40 +23,49 @@ namespace Scrabble.Words
     // }
     // }
 
-    public static Dictionary<string, int> scrabbleValues = new Dictionary<string, int>()
+    public static Dictionary<char, int> scrabbleValues = new Dictionary<char, int>()
     {
-      {"a", 1},
-      {"b", 3},
-      {"c", 3},
-      {"d", 2},
-      {"e", 2},
-      {"f", 2},
-      {"g", 2},
-      {"h", 2},
-      {"i", 2},
-      {"j", 2},
-      {"k", 2},
-      {"l", 2},
-      {"m", 2},
-      {"n", 2},
-      {"o", 2},
-      {"p", 2},
-      {"q", 2},
-      {"r", 2},
-      {"s", 2},
-      {"t", 2},
-      {"u", 2},
-      {"v", 2},
-      {"w", 2},
-      {"x", 2},
-      {"y", 2},
-      {"z", 2}
+      {'a', 1},
+      {'b', 3},
+      {'c', 3},
+      {'d', 2},
+      {'e', 1},
+      {'f', 4},
+      {'g', 2},
+      {'h', 4},
+      {'i', 1},
+      {'j', 8},
+      {'k', 5},
+      {'l', 1},
+      {'m', 3},
+      {'n', 1},
+      {'o', 1},
+      {'p', 3},
+      {'q', 10},
+      {'r', 1},
+      {'s', 1},
+      {'t', 1},
+      {'u', 1},
+      {'v', 4},
+      {'w', 4},
+      {'x', 8},
+      {'y', 4},
+      {'z', 10}
     };
 
-    public int LookUpValue(string letter)
+    public int LookUpValue(char letter)
     {
       return scrabbleValues[letter];
     }
 
+    public int LoopThroughWord(string word){
+      char[] wordArray = word.ToCharArray();
+      int score = 0;
+    for (int i = 0; i <= wordArray.Length - 1; i++)
+    {
+      score += LookUpValue(wordArray[i]);
+    }
+    return score;
+    }
   }
 }
